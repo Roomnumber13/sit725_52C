@@ -2,7 +2,7 @@ const { MongoClient } = require('mongodb');
 
 const mongoURI = 'mongodb://localhost:27017/';
 const dbName = 'myDB';
-const collectionName = 'newsCollection';
+const collectionName = 'newCollection';
 
 let collection;
 
