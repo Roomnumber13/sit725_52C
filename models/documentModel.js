@@ -1,5 +1,5 @@
 const { MongoClient } = require('mongodb');
-
+//Connecting to mongodb and create db & collections
 const mongoURI = 'mongodb://localhost:27017/';
 const dbName = 'myDB';
 const collectionName = 'newCollection';
@@ -7,7 +7,7 @@ const collectionName = 'newCollection';
 let collection;
 
 async function initializeDatabase() {
-    const client = new MongoClient(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
+    const client = new MongoClient(mongoURI);
     await client.connect();
     console.log('Connected to MongoDB');
     const db = client.db(dbName);
