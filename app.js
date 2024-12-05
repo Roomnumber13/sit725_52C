@@ -10,7 +10,7 @@ app.use(express.static('public'));
 app.use('/api', documentRoutes);
 
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/views/index2.html');
+    res.sendFile(__dirname + '/views/index.html');
 });
 
 initializeDatabase().then(() => {
