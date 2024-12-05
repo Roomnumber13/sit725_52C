@@ -1,3 +1,4 @@
+//Function to interact with models directory
 const { insertDocument, getDocuments } = require('../models/documentModel');
 
 exports.insertDocument = async (req, res) => {

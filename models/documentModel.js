@@ -29,5 +29,5 @@ async function insertDocument(document) {
 async function getDocuments() {
     return await collection.find({}).toArray();
 }
-
+//Other modules to interact with db
 module.exports = { initializeDatabase, insertDocument, getDocuments };
