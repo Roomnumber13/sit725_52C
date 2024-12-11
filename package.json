@@ -4,13 +4,16 @@
   "description": "This is a task 5.2C",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --reporter spec"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "chai": "^5.1.2",
     "express": "^4.21.1",
-    "mongodb": "^6.11.0"
+    "mocha": "^11.0.1",
+    "mongodb": "^6.11.0",
+    "request": "^2.88.2"
   }
 }
