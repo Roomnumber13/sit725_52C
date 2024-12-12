@@ -23,10 +23,10 @@ describe("Add Two Numbers", function() {
             done()
           });
     });
-    it("returns the result equal to 8", function(done) {
+    it("returns the result equal to 9", function(done) {
       request(url, function(error, response, body) {
           body = JSON.parse(body)
-          expect(body.result).to.equal(8);
+          expect(body.result).to.equal(9);
           done()
         });
   });
