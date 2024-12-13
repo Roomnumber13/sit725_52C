@@ -9,7 +9,6 @@ describe('Document Model', () => {
         it('should insert a document into the collection', async () => {
             const document = { title: 'Test Document' };
             const result = await documentModel.insertDocument(document);
-
             expect(result).to.have.property('insertedId');
         });
     });
@@ -17,7 +16,6 @@ describe('Document Model', () => {
     describe('getDocuments', () => {
         it('should retrieve documents from the collection', async () => {
             const documents = await documentModel.getDocuments();
-
             expect(documents).to.be.an('array');
             expect(documents.length).to.be.greaterThan(0);
         });

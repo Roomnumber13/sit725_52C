@@ -5,7 +5,7 @@ const documentController = require('../controllers/documentController');
 const documentModel = require('../models/documentModel');
 
 describe('Document Controller', () => {
-    //Initialize the database before running the tests
+    //Initializing the database before running the tests
     before(async () => {
         await documentModel.initializeDatabase();
     });
@@ -22,12 +22,9 @@ describe('Document Controller', () => {
                     this.jsonData = data;
                 }
             };
-
             await documentController.insertDocument(req, res);
-
             expect(res.statusCode).to.equal(201);
             expect(res.jsonData).to.have.property('message', 'Document inserted');
-
             //Convert ObjectID to string for comparison
             expect(res.jsonData).to.have.property('id');
             const insertedId = res.jsonData.id.toString();
@@ -48,9 +45,7 @@ describe('Document Controller', () => {
                     this.jsonData = data;
                 }
             };
-
             await documentController.getDocuments(req, res);
-
             expect(res.statusCode).to.equal(200);
             expect(res.jsonData).to.be.an('array');
         });
