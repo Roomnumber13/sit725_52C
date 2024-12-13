@@ -23,10 +23,16 @@ async function initializeDatabase() {
 }
 
 async function insertDocument(document) {
+    if(!collection){
+        throw new Error('Collection not initialized');
+    }
     return await collection.insertOne(document);
 }
 
 async function getDocuments() {
+    if(!collection){
+        throw new Error('Collection not initialized');
+    }
     return await collection.find({}).toArray();
 }
 //Other modules to interact with db

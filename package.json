@@ -10,13 +10,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "chai": "^5.1.2",
     "express": "^4.21.1",
     "mocha": "^11.0.1",
     "mongodb": "^6.11.0",
     "request": "^2.88.2"
   },
   "devDependencies": {
-    "sinon": "^19.0.2"
+    "chai": "^5.1.2",
+    "sinon": "^19.0.2",
+    "sinon-chai": "^4.0.0"
   }
 }
