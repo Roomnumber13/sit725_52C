@@ -5,7 +5,7 @@ const documentController = require('../controllers/documentController');
 const documentModel = require('../models/documentModel');
 
 describe('Document Controller', () => {
-    // Initialize the database before running the tests
+    //Initialize the database before running the tests
     before(async () => {
         await documentModel.initializeDatabase();
     });
@@ -30,7 +30,7 @@ describe('Document Controller', () => {
 
             //Convert ObjectID to string for comparison
             expect(res.jsonData).to.have.property('id');
-            const insertedId = res.jsonData.id;
+            const insertedId = res.jsonData.id.toString();
             expect(insertedId).to.be.a('string');
             console.log('Inserted ID:', res.jsonData.id);
         });

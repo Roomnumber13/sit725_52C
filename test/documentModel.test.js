@@ -1,7 +1,7 @@
 const chai = require('chai');
 const { expect } = chai;
 
-// Mocking the MongoDB client
+//Mocking the MongoDB client
 const documentModel = require('../models/documentModel');
 
 describe('Document Model', () => {
