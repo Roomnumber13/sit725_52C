@@ -35,5 +35,12 @@ async function getDocuments() {
     }
     return await collection.find({}).toArray();
 }
+async function clearCollection() {
+    if (!collection) {
+        throw new Error('Collection not initialized');
+    }
+    await collection.deleteMany({});
+}
+
 //Other modules to interact with db
-module.exports = { initializeDatabase, insertDocument, getDocuments };
+module.exports = { initializeDatabase, insertDocument, getDocuments, clearCollection };
