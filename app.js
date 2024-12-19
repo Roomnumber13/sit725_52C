@@ -6,6 +6,8 @@ const { initializeDatabase } = require('./models/documentModel');
 const documentRoutes = require('./routes/documentRoutes');
 
 const app = express();
+const http = require('http');
+let io = require('socket.io') (http);
 const PORT = process.env.PORT || 8080;
 
 app.use(express.json());
@@ -35,3 +37,14 @@ app.get('/addTwoNumbers/:firstNumber/:secondNumber', function(req,res,next){
     }
     else { res.json({result: result, statusCode: 200}).status(200) } 
   })
+
+  io.on('connection', (socket) => {
+    console.log('a user connected');
+    socket.on('disconnect', () => {
+        console.log('user disconnected');
+});
+
+setInterval(()=>{
+    socket.emit('number', parseInt(Math.random()*10));
+}, 1000);
+});
