@@ -6,8 +6,6 @@ const { initializeDatabase } = require('./models/documentModel');
 const documentRoutes = require('./routes/documentRoutes');
 
 const app = express();
-const http = require('http');
-let io = require('socket.io') (http);
 const PORT = process.env.PORT || 8080;
 
 app.use(express.json());
@@ -29,22 +27,11 @@ initializeDatabase().then(() => {
     console.error('Failed to initialize database:', err);
 });
 app.get('/addTwoNumbers/:firstNumber/:secondNumber', function(req,res,next){
-    var firstNumber = parseInt(req.params.firstNumber) 
-    var secondNumber = parseInt(req.params.secondNumber)
-    var result = firstNumber + secondNumber || null
+    const firstNumber = parseInt(req.params.firstNumber); 
+    const secondNumber = parseInt(req.params.secondNumber);
+    const result = firstNumber + secondNumber || null;
     if(result == null) {
-      res.json({result: result, statusCode: 400}).status(400)
+      res.json({result: result, statusCode: 400}).status(400);
     }
-    else { res.json({result: result, statusCode: 200}).status(200) } 
-  })
-
-  io.on('connection', (socket) => {
-    console.log('a user connected');
-    socket.on('disconnect', () => {
-        console.log('user disconnected');
-});
-
-setInterval(()=>{
-    socket.emit('number', parseInt(Math.random()*10));
-}, 1000);
-});
+    else { res.json({result: result, statusCode: 200}).status(200); } 
+  });
